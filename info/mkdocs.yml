@@ -1,0 +1,17 @@
+site_name: Pomodoro-Timer開発情報共有
+theme:
+  name: material
+  language: ja
+  icon:
+    logo: material/school
+    repo: fontawesome/brands/git-alt
+  favicon: favicon.png
+  features:
+    - tabs
+nav:
+  - このサイトについて: index.md
+  - 環境準備: initial_settings/index.md
+  - 開発ルール: 
+      - git運用について: rule/git/index.md
+  - Tips:
+      - git: tips/git/index.md
