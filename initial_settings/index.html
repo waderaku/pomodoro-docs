@@ -476,9 +476,9 @@
 </ul>
 <pre><code class="language-bash">docker pull yosemat/pomodoro-timer-front
 docker pull waderaku/pomodoro-timer-back
-docker network create pomodoro-net
-docker run --name=pomodoro-front --net=pomodoto_net -it -d yosemat/pomodoro-timer-front
-docker run --name=pomodoro-back --net=pomodoto_net -it -d -v /var/run/docker.sock:/var/run/docker.sock waderaku/pomodoro-timer-back
+docker network create pomodoro-timer
+docker run --name=pomodoro-front --net=pomodoro-timer -it -d yosemat/pomodoro-timer-front
+docker run --name=pomodoro-back --net=pomodoro-timer -it -d -v /var/run/docker.sock:/var/run/docker.sock waderaku/pomodoro-timer-back
 </code></pre>
 <h2 id="vscodedocker">VScodeでdockerと接続</h2>
 <ul>
