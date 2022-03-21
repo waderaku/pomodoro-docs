@@ -12,7 +12,7 @@ cd /root/workspaces/pomodoro-backend/tutorial
 python create_db.py
 ```
 
-- DynamoDBの設計及びデータイメージは以下となる。また、グローバルセカンダリインデックス名はDataType-Age-Indexである  
+- DynamoDBの設計及びデータイメージは以下となる。また、テーブル名はback_tutorial_user、グローバルセカンダリインデックス名はDataType-Age-Indexである  
 
 | ID(PK) | DataType(SK/GSI-PK) | Age(GSI-SK) | Name(Attr) |
 | :---: | :---: | :---: | :---: |
@@ -41,3 +41,4 @@ python create_db.py
 - 作成するリージョンは東京リージョン（ap-northeast-1）とすること。
 - 接続先DynamoDBは既に作成済みのため、改めて作る必要はない。
 - 完了したら、githubのIssuesに、作成したAWS LambdaのARNを記述すること。
+- lambdaにアタッチするロールは「service-role/test-role-7a28d0ea」を使用すること
