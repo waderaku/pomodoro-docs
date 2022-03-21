@@ -10,8 +10,12 @@ theme:
     - tabs
 nav:
   - このサイトについて: index.md
-  - 環境準備: initial_settings/index.md
+  - 環境準備: 010.initial_settings/index.md
+  - チュートリアルについて:
+      - フロントエンド: 020.tutorial/010.frontend/index.md
+      - バックエンド: 020.tutorial/020.backend/index.md
   - 開発ルール: 
-      - git運用について: rule/git/index.md
+      - 会議体: 030.rule/010.meeting/index.md
+      - git運用について: 030.rule/020.git/index.md
   - Tips:
-      - git: tips/git/index.md
+      - git: 999.tips/010.git/index.md
