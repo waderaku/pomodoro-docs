@@ -17,5 +17,8 @@ nav:
   - 開発ルール: 
       - 会議体: 030.rule/010.meeting/index.md
       - git運用について: 030.rule/020.git/index.md
+  - 設計書:
+      - ユビキタス言語: 040.document/010.ubiquitous_language/index.md
+      - DB設計書: 040.document/020.db/index.md
   - Tips:
       - git: 999.tips/010.git/index.md
