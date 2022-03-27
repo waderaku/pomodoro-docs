@@ -13,7 +13,7 @@
     
     
       
-        <title>バックエンド - Pomodoro-Timer開発情報共有</title>
+        <title>DB設計書 - Pomodoro-Timer開発情報共有</title>
       
     
     
@@ -59,7 +59,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#dynamodb" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -92,7 +92,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              バックエンド
+              DB設計書
             
           </span>
         </div>
@@ -206,14 +206,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
       
       
@@ -236,7 +234,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../010.frontend/" class="md-nav__link">
+      <a href="../../020.tutorial/010.frontend/" class="md-nav__link">
         フロントエンド
       </a>
     </li>
@@ -248,79 +246,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          バックエンド
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../020.tutorial/020.backend/" class="md-nav__link">
         バックエンド
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目次">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目次
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    1. ユーザ情報取得機能の作成（ローカルコンテナ）
-  </a>
-  
-    <nav class="md-nav" aria-label="1. ユーザ情報取得機能の作成（ローカルコンテナ）">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    補足
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    参考
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-aws-lambda" class="md-nav__link">
-    2. AWS Lambdaへのデプロイ
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -400,12 +330,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
       
       
       
@@ -428,7 +360,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../040.document/010.ubiquitous_language/" class="md-nav__link">
+      <a href="../010.ubiquitous_language/" class="md-nav__link">
         ユビキタス言語
       </a>
     </li>
@@ -440,11 +372,66 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../040.document/020.db/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          DB設計書
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         DB設計書
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    概要
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    ユースケース
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    テーブル設計
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -531,35 +518,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    1. ユーザ情報取得機能の作成（ローカルコンテナ）
+  <a href="#_1" class="md-nav__link">
+    概要
   </a>
-  
-    <nav class="md-nav" aria-label="1. ユーザ情報取得機能の作成（ローカルコンテナ）">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    補足
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    参考
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-aws-lambda" class="md-nav__link">
-    2. AWS Lambdaへのデプロイ
+  <a href="#_2" class="md-nav__link">
+    ユースケース
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    テーブル設計
   </a>
   
 </li>
@@ -578,77 +552,24 @@
                 
 
 
-<h1 id="_1">バックエンドチュートリアル</h1>
-<h2 id="1">1. ユーザ情報取得機能の作成（ローカルコンテナ）</h2>
+<h1 id="dynamodb">DynamoDB設計</h1>
+<h2 id="_1">概要</h2>
 <ul>
-<li>DynamoDBに登録されているユーザ情報を取得する関数を作成する。</li>
-<li>関数は、ユーザIDによる取得、年齢幅に属するユーザの取得の2つの関数を作成する。</li>
+<li>本ページでは、DynamoDBのテーブル設計を記す</li>
+<li>ユースケース項にて記されているすべてのユースケースを満たすように設計する。</li>
+<li>ただし、全てのユースケースにおいて、ユーザIDと紐づいていることが前提となる。</li>
+<li>逆に、ユーザIDに紐づかないデータは取得しないように設計する。</li>
 </ul>
-<h3 id="_2">補足</h3>
+<h2 id="_2">ユースケース</h2>
 <ul>
-<li>年齢幅による取得はユーザIDの昇順で返却する。</li>
-<li>テストのためにDynamoDBが必要となる。DynamoDBのコンテナ立ち上げ及びテーブルの構築のために、バックエンドコンテナ内で以下のコマンドを実行する</li>
+<li>ユーザ情報を取得する</li>
+<li>タスク一覧を取得する</li>
+<li>ある一定期間に紐づく作業一覧の取得</li>
+<li>タスク名/期限に紐づくタスク情報の取得</li>
+<li>タスクIDに紐づくタスク情報の取得</li>
+<li>タスクIDに紐づく作業一覧の取得</li>
 </ul>
-<pre><code class="language-bash">docker run -d --name dynamodb -p 8000:8000 --net=pomodoro-timer amazon/dynamodb-local 
-cd /root/workspaces/pomodoro-backend/tutorial
-python create_db.py
-</code></pre>
-<ul>
-<li>DynamoDBの設計及びデータイメージは以下となる。また、テーブル名はback_tutorial_user、グローバルセカンダリインデックス名はDataType-Age-Indexである  </li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="center">ID(PK)</th>
-<th align="center">DataType(SK/GSI-PK)</th>
-<th align="center">Age(GSI-SK)</th>
-<th align="center">Name(Attr)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">{ID}</td>
-<td align="center">Age</td>
-<td align="center">{Age}</td>
-<td align="center">-</td>
-</tr>
-<tr>
-<td align="center">{ID}</td>
-<td align="center">Name</td>
-<td align="center">-</td>
-<td align="center">{Name}</td>
-</tr>
-</tbody>
-</table>
-<p><img alt="Dynamoイメージ.png" src="img/DynamoDB.PNG" />  </p>
-<ul>
-<li>
-<p>各種関数は、バックエンドコンテナ内のtutolial/app/usecase.pyにある「get_user_by_id」、「get_user_by_age」に作成すること。ただし、引数及び戻り値は、関数に定義されているTypehintに従うこと。</p>
-</li>
-<li>
-<p>各種関数の呼び出しは、tutorial配下のmain.pyによって呼び出されることを想定する。</p>
-</li>
-<li>各関数の上位への実装は行わないこと（pytestが正常動作しなくなる危険性がある！）</li>
-<li>boto3のresource、clientオブジェクトを生成する際に、アクセスキー等の各種パラメータの指定はしないこと。ただし、endpoint_urlのみは、環境変数（pythonにおけるos.environ）に"DYNAMODB_ENDPOINT"というキーが存在した場合その値を指定すること（存在しなければNoneを指定）</li>
-<li>実装が完了した場合、tutorial/testに存在するtest_main.pyにて、pytestを実行する（VSCodeの拡張機能により実施）。そのテスト結果がすべて成功している場合、GitHubのIssuesに以下のようなテスト結果の画像を貼り付ける</li>
-</ul>
-<div align="center">
-    <img src="./img/test.PNG" alt="テスト結果イメージ">
-</div>
-
-<h3 id="_3">参考</h3>
-<ul>
-<li><a href="https://pages.awscloud.com/rs/112-TZM-766/images/20190905_%E3%82%A4%E3%83%81%E3%81%8B%E3%82%89%E7%90%86%E8%A7%A3%E3%81%99%E3%82%8B%E3%82%B5%E3%83%BC%E3%83%8F%E3%82%99%E3%83%BC%E3%83%AC%E3%82%B9%E3%82%A2%E3%83%95%E3%82%9A%E3%83%AA%E9%96%8B%E7%99%BA-%E3%82%B5%E3%83%BC%E3%83%8F%E3%82%99%E3%83%BC%E3%83%AC%E3%82%B9%E3%82%A2%E3%83%95%E3%82%9A%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E5%90%91%E3%81%8D%E3%81%AEDB%20%E8%A8%AD%E8%A8%88%E3%83%98%E3%82%99%E3%82%B9%E3%83%88%E3%83%95%E3%82%9A%E3%83%A9%E3%82%AF%E3%83%86%E3%82%A3%E3%82%B9.pdf">サーバーレスアプリケーション向きのDB設計ベストプラクティス | AWS Black Belt</a></li>
-<li><a href="https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodb.html#service-resource">boto3公式リファレンス(DynamoDB)</a></li>
-</ul>
-<h2 id="2-aws-lambda">2. AWS Lambdaへのデプロイ</h2>
-<ul>
-<li>1.にて作成した各関数を利用するAWS Lambda関数を作成する。</li>
-<li>作成するリージョンは東京リージョン（ap-northeast-1）とすること。</li>
-<li>接続先DynamoDBは既に作成済みのため、改めて作る必要はない。</li>
-<li>完了したら、githubのIssuesに、作成したAWS LambdaのARNを記述すること。</li>
-<li>lambdaにアタッチするロールは「service-role/test-role-7a28d0ea」を使用すること</li>
-</ul>
+<h2 id="_3">テーブル設計</h2>
 
               
             </article>
@@ -662,7 +583,7 @@ python create_db.py
     <nav class="md-footer__inner md-grid" aria-label="フッター">
       
         
-        <a href="../010.frontend/" class="md-footer__link md-footer__link--prev" aria-label="前: フロントエンド" rel="prev">
+        <a href="../010.ubiquitous_language/" class="md-footer__link md-footer__link--prev" aria-label="前: ユビキタス言語" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -671,20 +592,20 @@ python create_db.py
               <span class="md-footer__direction">
                 前
               </span>
-              フロントエンド
+              ユビキタス言語
             </div>
           </div>
         </a>
       
       
         
-        <a href="../../030.rule/010.meeting/" class="md-footer__link md-footer__link--next" aria-label="次: 会議体" rel="next">
+        <a href="../../999.tips/010.git/" class="md-footer__link md-footer__link--next" aria-label="次: git" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 次
               </span>
-              会議体
+              git
             </div>
           </div>
           <div class="md-footer__button md-icon">
