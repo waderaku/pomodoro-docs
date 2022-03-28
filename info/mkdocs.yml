@@ -20,5 +20,8 @@ nav:
   - 設計書:
       - ユビキタス言語: 040.document/010.ubiquitous_language/index.md
       - DB設計書: 040.document/020.db/index.md
+      - API定義: 040.document/030.api/index.md
   - Tips:
       - git: 999.tips/010.git/index.md
+plugins:
+  - render_swagger
