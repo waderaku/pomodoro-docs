@@ -13,7 +13,7 @@
     
     
       
-        <title>会議体 - Pomodoro-Timer開発情報共有</title>
+        <title>API定義 - Pomodoro-Timer開発情報共有</title>
       
     
     
@@ -58,11 +58,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#_1" class="md-skip">
-          コンテンツにスキップ
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -92,7 +87,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              会議体
+              API定義
             
           </span>
         </div>
@@ -235,14 +230,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
       
       
       
@@ -263,21 +256,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../030.rule/010.meeting/" class="md-nav__link">
         会議体
       </a>
-      
     </li>
   
 
@@ -289,7 +272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../020.git/" class="md-nav__link">
+      <a href="../../030.rule/020.git/" class="md-nav__link">
         git運用について
       </a>
     </li>
@@ -309,12 +292,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
       
       
       
@@ -337,7 +322,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../040.document/010.ubiquitous_language/" class="md-nav__link">
+      <a href="../010.ubiquitous_language/" class="md-nav__link">
         ユビキタス言語
       </a>
     </li>
@@ -351,7 +336,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../040.document/020.db/" class="md-nav__link">
+      <a href="../020.db/" class="md-nav__link">
         DB設計書
       </a>
     </li>
@@ -363,11 +348,19 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../040.document/030.api/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         API定義
       </a>
+      
     </li>
   
 
@@ -434,24 +427,6 @@
               </div>
             
             
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-<nav class="md-nav md-nav--secondary" aria-label="目次">
-  
-  
-  
-    
-  
-  
-</nav>
-                  </div>
-                </div>
-              </div>
-            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
@@ -459,38 +434,18 @@
                 
 
 
-<h1 id="_1">会議体</h1>
-<table>
-<thead>
-<tr>
-<th align="center">名称</th>
-<th align="center">日程</th>
-<th align="center">備考</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">定例会</td>
-<td align="center">毎週日曜20:00~20:30<br>早ければ15分くらい</td>
-<td align="center">状況共有メインです。<br>出来れば参加してほしい！</td>
-</tr>
-<tr>
-<td align="center">もくもく会</td>
-<td align="center">毎週土曜または日曜<br>14:00~16:00</td>
-<td align="center">出席自由・出入り自由</td>
-</tr>
-<tr>
-<td align="center">各種イベント</td>
-<td align="center">適宜</td>
-<td align="center">モブプロ・勉強会など</td>
-</tr>
-<tr>
-<td align="center">フロントエンド勉強会</td>
-<td align="center">未定 1~2hほどを想定</td>
-<td align="center">小林主催</td>
-</tr>
-</tbody>
-</table>
+  <h1>API定義</h1>
+
+<p><link type="text/css" rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@3/swagger-ui.css"></p>
+<div id="swagger-ui">
+</div>
+<script src="https://unpkg.com/swagger-ui-dist@3/swagger-ui-bundle.js" charset="UTF-8"></script>
+<script>
+    const ui = SwaggerUIBundle({
+    url: 'api.json',
+    dom_id: '#swagger-ui',
+    })
+</script>
 
               
             </article>
@@ -504,7 +459,7 @@
     <nav class="md-footer__inner md-grid" aria-label="フッター">
       
         
-        <a href="../../020.tutorial/020.backend/" class="md-footer__link md-footer__link--prev" aria-label="前: バックエンド" rel="prev">
+        <a href="../020.db/" class="md-footer__link md-footer__link--prev" aria-label="前: DB設計書" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -513,20 +468,20 @@
               <span class="md-footer__direction">
                 前
               </span>
-              バックエンド
+              DB設計書
             </div>
           </div>
         </a>
       
       
         
-        <a href="../020.git/" class="md-footer__link md-footer__link--next" aria-label="次: git運用について" rel="next">
+        <a href="../../999.tips/010.git/" class="md-footer__link md-footer__link--next" aria-label="次: git" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 次
               </span>
-              git運用について
+              git
             </div>
           </div>
           <div class="md-footer__button md-icon">

@@ -1,0 +1,693 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "Pomodoro-Timerバックエンド",
+        "version": "0.1.0"
+    },
+    "paths": {
+        "/rootTask": {
+            "get": {
+                "tags": [
+                    "task"
+                ],
+                "summary": "Fetch Root Task",
+                "operationId": "fetch_root_task_rootTask_get",
+                "parameters": [
+                    {
+                        "required": false,
+                        "schema": {
+                            "title": "Userid",
+                            "type": "string"
+                        },
+                        "name": "userId",
+                        "in": "header"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/RootTaskResponse"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/task": {
+            "get": {
+                "tags": [
+                    "task"
+                ],
+                "summary": "Fetch Task",
+                "operationId": "fetch_task_task_get",
+                "parameters": [
+                    {
+                        "required": false,
+                        "schema": {
+                            "title": "Userid",
+                            "type": "string"
+                        },
+                        "name": "userId",
+                        "in": "header"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "title": "Response Fetch Task Task Get",
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/TaskResponse"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "task"
+                ],
+                "summary": "Register Task",
+                "operationId": "register_task_task_post",
+                "parameters": [
+                    {
+                        "required": false,
+                        "schema": {
+                            "title": "Userid",
+                            "type": "string"
+                        },
+                        "name": "userId",
+                        "in": "header"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RegisterTaskRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/user": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Fetch User",
+                "operationId": "fetch_user_user_get",
+                "parameters": [
+                    {
+                        "required": false,
+                        "schema": {
+                            "title": "Userid",
+                            "type": "string"
+                        },
+                        "name": "userId",
+                        "in": "header"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UserModel"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Update User",
+                "operationId": "update_user_user_put",
+                "parameters": [
+                    {
+                        "required": false,
+                        "schema": {
+                            "title": "Userid",
+                            "type": "string"
+                        },
+                        "name": "userId",
+                        "in": "header"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UserModel"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/task/{id}": {
+            "put": {
+                "tags": [
+                    "task"
+                ],
+                "summary": "Update Task",
+                "operationId": "update_task_task__id__put",
+                "parameters": [
+                    {
+                        "required": true,
+                        "schema": {
+                            "title": "Id",
+                            "type": "string"
+                        },
+                        "name": "id",
+                        "in": "path"
+                    },
+                    {
+                        "required": false,
+                        "schema": {
+                            "title": "Userid",
+                            "type": "string"
+                        },
+                        "name": "userId",
+                        "in": "header"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateTaskRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/task/finish/{id}": {
+            "put": {
+                "tags": [
+                    "task"
+                ],
+                "summary": "Finish Task",
+                "operationId": "finish_task_task_finish__id__put",
+                "parameters": [
+                    {
+                        "required": true,
+                        "schema": {
+                            "title": "Id",
+                            "type": "string"
+                        },
+                        "name": "id",
+                        "in": "path"
+                    },
+                    {
+                        "required": false,
+                        "schema": {
+                            "title": "Userid",
+                            "type": "string"
+                        },
+                        "name": "userId",
+                        "in": "header"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/event": {
+            "post": {
+                "tags": [
+                    "event"
+                ],
+                "summary": "Register Event",
+                "operationId": "register_event_event_post",
+                "parameters": [
+                    {
+                        "required": false,
+                        "schema": {
+                            "title": "Userid",
+                            "type": "string"
+                        },
+                        "name": "userId",
+                        "in": "header"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RegisterEvent"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Calender": {
+                "title": "Calender",
+                "required": [
+                    "id",
+                    "name"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string"
+                    },
+                    "name": {
+                        "title": "Name",
+                        "type": "string"
+                    }
+                }
+            },
+            "DefaultLength": {
+                "title": "DefaultLength",
+                "required": [
+                    "work",
+                    "rest"
+                ],
+                "type": "object",
+                "properties": {
+                    "work": {
+                        "title": "Work",
+                        "type": "integer"
+                    },
+                    "rest": {
+                        "title": "Rest",
+                        "type": "integer"
+                    }
+                }
+            },
+            "GoogleConfig": {
+                "title": "GoogleConfig",
+                "required": [
+                    "calendar",
+                    "taskList"
+                ],
+                "type": "object",
+                "properties": {
+                    "calendar": {
+                        "$ref": "#/components/schemas/Calender"
+                    },
+                    "taskList": {
+                        "$ref": "#/components/schemas/TaskList"
+                    }
+                }
+            },
+            "HTTPValidationError": {
+                "title": "HTTPValidationError",
+                "type": "object",
+                "properties": {
+                    "detail": {
+                        "title": "Detail",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ValidationError"
+                        }
+                    }
+                }
+            },
+            "RegisterEvent": {
+                "title": "RegisterEvent",
+                "required": [
+                    "taskId",
+                    "start",
+                    "end"
+                ],
+                "type": "object",
+                "properties": {
+                    "taskId": {
+                        "title": "Taskid",
+                        "type": "string"
+                    },
+                    "start": {
+                        "title": "Start",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "end": {
+                        "title": "End",
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "RegisterTaskRequest": {
+                "title": "RegisterTaskRequest",
+                "required": [
+                    "parentId",
+                    "name",
+                    "estimatedMinutes",
+                    "deadline",
+                    "notes"
+                ],
+                "type": "object",
+                "properties": {
+                    "parentId": {
+                        "title": "Parentid",
+                        "type": "string"
+                    },
+                    "name": {
+                        "title": "Name",
+                        "type": "string"
+                    },
+                    "estimatedMinutes": {
+                        "title": "Estimatedminutes",
+                        "type": "string"
+                    },
+                    "deadline": {
+                        "title": "Deadline",
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "notes": {
+                        "title": "Notes",
+                        "type": "string"
+                    }
+                }
+            },
+            "RootTaskResponse": {
+                "title": "RootTaskResponse",
+                "required": [
+                    "taskList",
+                    "rootList"
+                ],
+                "type": "object",
+                "properties": {
+                    "taskList": {
+                        "title": "Tasklist",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "rootList": {
+                        "title": "Rootlist",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "TaskData": {
+                "title": "TaskData",
+                "required": [
+                    "name",
+                    "childrenIdList",
+                    "finishedMinutes",
+                    "estimatedMinutes",
+                    "deadline",
+                    "notes"
+                ],
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "title": "Name",
+                        "type": "string"
+                    },
+                    "childrenIdList": {
+                        "title": "Childrenidlist",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "finishedMinutes": {
+                        "title": "Finishedminutes",
+                        "type": "integer"
+                    },
+                    "estimatedMinutes": {
+                        "title": "Estimatedminutes",
+                        "type": "integer"
+                    },
+                    "deadline": {
+                        "title": "Deadline",
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "notes": {
+                        "title": "Notes",
+                        "type": "string"
+                    }
+                }
+            },
+            "TaskList": {
+                "title": "TaskList",
+                "required": [
+                    "id",
+                    "name"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string"
+                    },
+                    "name": {
+                        "title": "Name",
+                        "type": "string"
+                    }
+                }
+            },
+            "TaskResponse": {
+                "title": "TaskResponse",
+                "required": [
+                    "id",
+                    "task"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string"
+                    },
+                    "task": {
+                        "$ref": "#/components/schemas/TaskData"
+                    }
+                }
+            },
+            "UpdateTaskRequest": {
+                "title": "UpdateTaskRequest",
+                "required": [
+                    "name",
+                    "deadline",
+                    "notes"
+                ],
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "title": "Name",
+                        "type": "string"
+                    },
+                    "deadline": {
+                        "title": "Deadline",
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "notes": {
+                        "title": "Notes",
+                        "type": "string"
+                    }
+                }
+            },
+            "UserModel": {
+                "title": "UserModel",
+                "required": [
+                    "isGoogleLinked",
+                    "googleConfig",
+                    "defaultLength"
+                ],
+                "type": "object",
+                "properties": {
+                    "isGoogleLinked": {
+                        "title": "Isgooglelinked",
+                        "type": "boolean"
+                    },
+                    "googleConfig": {
+                        "$ref": "#/components/schemas/GoogleConfig"
+                    },
+                    "defaultLength": {
+                        "$ref": "#/components/schemas/DefaultLength"
+                    }
+                }
+            },
+            "ValidationError": {
+                "title": "ValidationError",
+                "required": [
+                    "loc",
+                    "msg",
+                    "type"
+                ],
+                "type": "object",
+                "properties": {
+                    "loc": {
+                        "title": "Location",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "msg": {
+                        "title": "Message",
+                        "type": "string"
+                    },
+                    "type": {
+                        "title": "Error Type",
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}
