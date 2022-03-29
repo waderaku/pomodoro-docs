@@ -571,42 +571,49 @@
                 
 
 
-<h1 id="_1">環境準備</h1>
-<h2 id="vscode">VSCodeのインストール</h2>
+<h1 id="_1">環境準備<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="vscode">VSCodeのインストール<a class="headerlink" href="#vscode" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://code.visualstudio.com/">VSCodeダウンロードサイト</a>からダウンロードしてください。その後、インストール。</li>
 <li><a href="https://miya-system-works.com/blog/detail/vscode-install/">手順</a></li>
 </ul>
-<h3 id="_2">おすすめ拡張機能</h3>
+<h3 id="_2">おすすめ拡張機能<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Python</li>
 <li>Bracket Pair Colorizae</li>
 <li>GitLens</li>
 </ul>
-<h2 id="ranhcerdesktop">RanhcerDesktopのインストール</h2>
+<h2 id="ranhcerdesktop">RanhcerDesktopのインストール<a class="headerlink" href="#ranhcerdesktop" title="Permanent link">&para;</a></h2>
 <ul>
 <li>rancher desktopをインストール</li>
 <li><a href="https://docs.rancherdesktop.io/getting-started/installation#windows">手順</a></li>
 <li><a href="https://qiita.com/moritalous/items/14d4099023981dcf4fd2">こちらも参考</a></li>
 </ul>
-<h2 id="docker">各種Dockerコンテナの起動</h2>
+<h2 id="docker">各種Dockerコンテナの起動<a class="headerlink" href="#docker" title="Permanent link">&para;</a></h2>
 <ul>
-<li>cmd で下記コマンドを実行</li>
-</ul>
-<pre><code class="language-bash">docker pull yosemat/pomodoro-timer-front
+<li>cmd で下記コマンドを実行
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>docker pull yosemat/pomodoro-timer-front
 docker pull waderaku/pomodoro-timer-back
 docker network create pomodoro-timer
-docker run --name=pomodoro-front --net=pomodoro-timer -it -d yosemat/pomodoro-timer-front
-docker run --name=pomodoro-back --net=pomodoro-timer -it -d -v /var/run/docker.sock:/var/run/docker.sock waderaku/pomodoro-timer-back
-</code></pre>
-<h2 id="vscodedocker">VScodeでdockerと接続</h2>
+docker run --name<span class="o">=</span>pomodoro-front --net<span class="o">=</span>pomodoro-timer -it -d yosemat/pomodoro-timer-front
+docker run --name<span class="o">=</span>pomodoro-back --net<span class="o">=</span>pomodoro-timer -it -d -v /var/run/docker.sock:/var/run/docker.sock waderaku/pomodoro-timer-back
+</code></pre></div>
+</td></tr></table></li>
+</ul>
+<h2 id="vscodedocker">VScodeでdockerと接続<a class="headerlink" href="#vscodedocker" title="Permanent link">&para;</a></h2>
 <ul>
 <li>こちらの記事がわかりやすかった=&gt;<a href="https://qiita.com/Yuki_Oshima/items/d3b52c553387685460b0">VS CodeでDocker開発コンテナを便利に使おう - Qiita</a></li>
 <li>各コンテナに入ったら、それぞれのgit設定を更新（必ずやること！）</li>
 </ul>
-<pre><code class="language-bash">git config user.name=自分のユーザー名
-git config user.email=自分のメールアドレス
-</code></pre>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git config user.name<span class="o">=</span>自分のユーザー名
+git config user.email<span class="o">=</span>自分のメールアドレス
+</code></pre></div>
+</td></tr></table>
 
               
             </article>
@@ -655,6 +662,10 @@ git config user.email=自分のメールアドレス
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2021 - Pomodoro-Timer Application Ltd. Allrights Reserved.
+    </div>
   
   
     Made with

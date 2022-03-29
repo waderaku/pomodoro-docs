@@ -685,8 +685,8 @@
                 
 
 
-<h1 id="git">git</h1>
-<h2 id="git_1">gitって？</h2>
+<h1 id="git">git<a class="headerlink" href="#git" title="Permanent link">&para;</a></h1>
+<h2 id="git_1">gitって？<a class="headerlink" href="#git_1" title="Permanent link">&para;</a></h2>
 <ul>
 <li>古いバージョンに簡単に戻せる</li>
 <li>新旧のファイルを一元管理できる</li>
@@ -702,114 +702,136 @@
 </ul>
 </li>
 </ul>
-<h2 id="_1">各種コマンド</h2>
-<h3 id="fetch">fetch</h3>
+<h2 id="_1">各種コマンド<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="fetch">fetch<a class="headerlink" href="#fetch" title="Permanent link">&para;</a></h3>
 <ul>
-<li>ローカルリポジトリをリモートリポジトリに同期する</li>
-</ul>
-<pre><code class="language-git">git fetch origin
+<li>ローカルリポジトリをリモートリポジトリに同期する
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git fetch origin
 git fetch origin (リモートブランチ名)
-</code></pre>
-<h3 id="merge">merge</h3>
-<ul>
-<li>リモートブランチと同期したデータ、ローカルリポジトリ(のカレントブランチ)に取り込む</li>
+</code></pre></div>
+</td></tr></table></li>
 </ul>
-<pre><code class="language-git">git merge origin/(リモートブランチ名)
-</code></pre>
-<h3 id="pull">pull</h3>
+<h3 id="merge">merge<a class="headerlink" href="#merge" title="Permanent link">&para;</a></h3>
+<ul>
+<li>リモートブランチと同期したデータ、ローカルリポジトリ(のカレントブランチ)に取り込む
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git merge origin/(リモートブランチ名)
+</code></pre></div>
+</td></tr></table></li>
+</ul>
+<h3 id="pull">pull<a class="headerlink" href="#pull" title="Permanent link">&para;</a></h3>
 <ul>
 <li>fetchとmergeをまとめて行う</li>
 <li>ローカルブランチに対象ブランチが存在しない場合は新たに作る</li>
-<li>基本的にこれを使う</li>
+<li>基本的にこれを使う
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git pull origin (リモートブランチ名)
+</code></pre></div>
+</td></tr></table></li>
 </ul>
-<pre><code class="language-git">git pull origin (リモートブランチ名)
-</code></pre>
-<h3 id="push">push</h3>
+<h3 id="push">push<a class="headerlink" href="#push" title="Permanent link">&para;</a></h3>
 <ul>
-<li>ローカルブランチのデータをリモートブランチに送る（最新のもの）</li>
-</ul>
-<pre><code class="language-git">git push origin (ローカル・リモートのブランチ名)
+<li>ローカルブランチのデータをリモートブランチに送る（最新のもの）
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git push origin (ローカル・リモートのブランチ名)
 git push origin &lt;PUSHしたいローカルブランチ名&gt;:&lt;PUSH先リモートブランチ名&gt;
-</code></pre>
-<h3 id="branch">branch</h3>
-<ul>
-<li>ブランチの一覧表示</li>
+</code></pre></div>
+</td></tr></table></li>
 </ul>
-<pre><code class="language-git">git branch
-</code></pre>
+<h3 id="branch">branch<a class="headerlink" href="#branch" title="Permanent link">&para;</a></h3>
 <ul>
-<li>ブランチ新規作成</li>
-</ul>
-<pre><code class="language-git">git branch (新規ローカルブランチ名)
-</code></pre>
-<ul>
-<li>ブランチの削除</li>
-</ul>
-<pre><code class="language-git">git branch -d (ローカルブランチ名)
+<li>ブランチの一覧表示
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git branch
+</code></pre></div>
+</td></tr></table></li>
+<li>ブランチ新規作成
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git branch (新規ローカルブランチ名)
+</code></pre></div>
+</td></tr></table></li>
+<li>ブランチの削除
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git branch -d (ローカルブランチ名)
 git branch -D (ブランチ名)
-</code></pre>
-<h3 id="checkout">checkout</h3>
-<ul>
-<li>カレントブランチの変更</li>
+</code></pre></div>
+</td></tr></table></li>
 </ul>
-<pre><code class="language-git">git checkout (ローカルブランチ名)
-</code></pre>
+<h3 id="checkout">checkout<a class="headerlink" href="#checkout" title="Permanent link">&para;</a></h3>
 <ul>
-<li>新規ブランチを作りそれをカレントブランチにする</li>
+<li>カレントブランチの変更
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git checkout (ローカルブランチ名)
+</code></pre></div>
+</td></tr></table></li>
+<li>新規ブランチを作りそれをカレントブランチにする
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git checkout -b (ブランチ名)
+</code></pre></div>
+</td></tr></table></li>
 </ul>
-<pre><code class="language-git">git checkout -b (ブランチ名)
-</code></pre>
-<h3 id="state">state</h3>
+<h3 id="state">state<a class="headerlink" href="#state" title="Permanent link">&para;</a></h3>
 <ul>
-<li>変更のあったファイルを確認</li>
+<li>変更のあったファイルを確認
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git state
+</code></pre></div>
+</td></tr></table></li>
 </ul>
-<pre><code class="language-git">git state
-</code></pre>
-<h3 id="add">add</h3>
+<h3 id="add">add<a class="headerlink" href="#add" title="Permanent link">&para;</a></h3>
 <ul>
-<li>変更を取り込むファイルの選択</li>
+<li>変更を取り込むファイルの選択
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git add (ファイル名)
+</code></pre></div>
+</td></tr></table></li>
 </ul>
-<pre><code class="language-git">git add (ファイル名)
-</code></pre>
-<h3 id="commit">commit</h3>
+<h3 id="commit">commit<a class="headerlink" href="#commit" title="Permanent link">&para;</a></h3>
 <ul>
-<li>変更を確定</li>
+<li>変更を確定
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git commit -m &#39;コメント&#39;
+</code></pre></div>
+</td></tr></table></li>
 </ul>
-<pre><code class="language-git">git commit -m 'コメント'
-</code></pre>
-<h3 id="_2">規約</h3>
+<h3 id="_2">規約<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <ul>
 <li>ローカルブランチからリモートブランチのmasterには直にpushしない</li>
 <li>別名でリモートブランチを切って、そこからpull requestを出す</li>
 <li>pull requestの名前にはissue番号を入れる(例:#86 XXXコンポーネント修正)</li>
 <li>作業の前にはissueボードの該当タスクを動かす</li>
 </ul>
-<h3 id="tips">Tips</h3>
+<h3 id="tips">Tips<a class="headerlink" href="#tips" title="Permanent link">&para;</a></h3>
 <ul>
-<li>基本的に作業は下記の流れ</li>
-</ul>
-<pre><code class="language-git">git checkout -b XXX
+<li>基本的に作業は下記の流れ
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git checkout -b XXX
 git pull origin master
 git add ./XXX/XXX.tsx
-git commit -m '#86 isuue対応'
+git commit -m &#39;#86 isuue対応&#39;
 git push origin XXX
-</code></pre>
-<ul>
+</code></pre></div>
+</td></tr></table></li>
 <li>その他</li>
 <li>過去のバージョンに戻る
-    <code>git
-    // コミットログを参照
-    git log
-    // 対象コミットに戻る
-    git reset --hard XXX
-    // 戻しすぎちゃった場合
-    git reflog
-    // reflogで出てきたログに
-    git reset --hard XXX</code></li>
+    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>// コミットログを参照
+git log
+// 対象コミットに戻る
+git reset --hard XXX
+// 戻しすぎちゃった場合
+git reflog
+// reflogで出てきたログに
+git reset --hard XXX
+</code></pre></div>
+</td></tr></table></li>
 <li>リモートブランチでローカルを上書きする
-    <code>git
-    git fetch origin (対象リモートブランチ)
-    git reset --hard origin/&lt;branch_name&gt;</code></li>
+    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git fetch origin (対象リモートブランチ)
+git reset --hard origin/&lt;branch_name&gt;
+</code></pre></div>
+</td></tr></table></li>
 </ul>
 
               
@@ -844,6 +866,10 @@ git push origin XXX
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2021 - Pomodoro-Timer Application Ltd. Allrights Reserved.
+    </div>
   
   
     Made with

@@ -1075,110 +1075,110 @@
                 
 
 
-<h1 id="_1">ユビキタス言語</h1>
-<h2 id="_2">ユビキタス言語とは</h2>
+<h1 id="_1">ユビキタス言語<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">ユビキタス言語とは<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>ユビキタス言語は、開発者やドメインエキスパートを含むチーム全体の共通言語として定義され、チーム内の会話、ドキュメントやコードに至るまで統一的に使用される言葉。ただし、一般的にアプリケーション全体に統一された言語を定義することは困難なため、統一された言語の範囲を「境界づけられたコンテキスト」として区分する。<br />
 本ドキュメントでは、PomodoroTimerアプリケーションにおける境界づけられたコンテキスト毎の共通言語を指す。</p>
-<h2 id="_3">タスク管理コンテキスト</h2>
-<h3 id="_4">ユーザ</h3>
-<h4 id="_5">英名(単数)</h4>
+<h2 id="_3">タスク管理コンテキスト<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="_4">ユーザ<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<h4 id="_5">英名(単数)<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
 <p>user</p>
-<h4 id="_6">概要</h4>
+<h4 id="_6">概要<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
 <ul>
 <li>本アプリケーションを操作する利用者。  </li>
 <li>任意のGoogleアカウントと連携することができるが、Googleアカウントのユーザとは別の本アプリケーションに紐づいた実体を指す。</li>
 <li>タスクを作成し、そのタスクに対してタイマーを実行する。  </li>
 </ul>
-<h4 id="_7">使用例</h4>
+<h4 id="_7">使用例<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
 <ul>
 <li>ユーザがタスクを終了する。</li>
 <li>ユーザがGoogleアカウントにログインする</li>
 </ul>
-<h3 id="_8">タスク</h3>
-<h4 id="_9">英名(単数)</h4>
+<h3 id="_8">タスク<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<h4 id="_9">英名(単数)<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
 <p>task</p>
-<h4 id="_10">概要</h4>
+<h4 id="_10">概要<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
 <ul>
 <li>作業対象となるタスクを指す。  </li>
 <li>タスクは、自身に紐づく子タスクを定義できる。子タスクは、更に自身の子タスクを定義することができ、再帰的にツリーを広げられる。</li>
 </ul>
-<h4 id="_11">使用例</h4>
+<h4 id="_11">使用例<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
 <ul>
 <li>ユーザがタスクを新規作成する。</li>
 <li>タスクのタイマーを実行する。</li>
 </ul>
-<h3 id="_12">ルートタスク</h3>
-<h4 id="_13">英名(単数)</h4>
+<h3 id="_12">ルートタスク<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<h4 id="_13">英名(単数)<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
 <p>root_task、rootTask</p>
-<h4 id="_14">概要</h4>
+<h4 id="_14">概要<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h4>
 <ul>
 <li>タスクの中でも最も上位のタスクを指す。  </li>
 <li>ルートタスクは、サイドバーに表示される。</li>
 <li>ルートタスクは、直接作業をすることができない（？）</li>
 </ul>
-<h4 id="_15">使用例</h4>
+<h4 id="_15">使用例<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h4>
 <ul>
 <li>ユーザがルートタスクを新規作成する。</li>
 </ul>
-<h3 id="_16">葉タスク</h3>
-<h4 id="_17">英名(単数)</h4>
+<h3 id="_16">葉タスク<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<h4 id="_17">英名(単数)<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h4>
 <p>leaf_task、leafTask</p>
-<h4 id="_18">概要</h4>
+<h4 id="_18">概要<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h4>
 <ul>
 <li>タスクの中でも最も下位のタスクを指す。  </li>
 <li>葉タスクに対してのみ、タイマーを実行することができる。</li>
 </ul>
-<h4 id="_19">使用例</h4>
+<h4 id="_19">使用例<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h4>
 <ul>
 <li>葉タスクのため、選択欄の色をグレーに設定する。</li>
 </ul>
-<h3 id="_20">非葉タスク</h3>
-<h4 id="_21">英名(単数)</h4>
+<h3 id="_20">非葉タスク<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<h4 id="_21">英名(単数)<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h4>
 <p>non_leaf_task、nonLeafTask</p>
-<h4 id="_22">概要</h4>
+<h4 id="_22">概要<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h4>
 <ul>
 <li>子タスクが定義されているタスクを指す。  </li>
 <li>オペレーション上、葉タスクに対して子タスクが定義されることによって、当該タスクが非葉タスクとなる。</li>
 <li>非葉タスクはタイマーを実行することができない。</li>
 <li>非葉タスクを完了したとき、全ての子タスクがすべて完了となる。</li>
 </ul>
-<h4 id="_23">使用例</h4>
+<h4 id="_23">使用例<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h4>
 <ul>
 <li>非葉タスクを選択し、子供の葉タスクからタイマーを実行する。</li>
 </ul>
-<h3 id="_24">作業見積時間、見積時間</h3>
-<h4 id="_25">英名(単数)</h4>
+<h3 id="_24">作業見積時間、見積時間<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
+<h4 id="_25">英名(単数)<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h4>
 <p>estimated_minutes、estimatedMinutes</p>
-<h4 id="_26">概要</h4>
+<h4 id="_26">概要<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h4>
 <ul>
 <li>タスクの作業見積時間を指す。単位は分である。</li>
 <li>非葉タスクの作業見積時間は、「子タスクの作業見積時間の合計」と「当該タスクに設定されている作業見積時間」のより大きい値となる。</li>
 </ul>
-<h4 id="_27">使用例</h4>
+<h4 id="_27">使用例<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h4>
 <ul>
 <li>子タスクの作業見積時間を計算し、親タスクの作業見積時間を導く</li>
 </ul>
-<h3 id="_28">作業完了時間、完了時間</h3>
-<h4 id="_29">英名(単数)</h4>
+<h3 id="_28">作業完了時間、完了時間<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
+<h4 id="_29">英名(単数)<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h4>
 <p>finished_minutes、finishedMinutes</p>
-<h4 id="_30">概要</h4>
+<h4 id="_30">概要<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h4>
 <ul>
 <li>タスクの作業完了時間を指す。単位は分である。</li>
 <li>非葉タスクの作業完了時間は、子タスクの作業完了時間と当該タスクが葉タスクであったときに実施した作業時間の合計となる。</li>
 </ul>
-<h4 id="_31">使用例</h4>
+<h4 id="_31">使用例<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h4>
 <ul>
 <li>子タスクの作業完了時間を計算し、親タスクの作業完了時間を導く</li>
 </ul>
-<h3 id="_32">作業/イベント</h3>
-<h4 id="_33">英名(単数)</h4>
+<h3 id="_32">作業/イベント<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h3>
+<h4 id="_33">英名(単数)<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h4>
 <p>event</p>
-<h4 id="_34">概要</h4>
+<h4 id="_34">概要<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h4>
 <ul>
 <li>タスクに対してタイマーを実行する際の実態となるデータもしくは実行そのものを指す。</li>
 <li>タスクに紐づく作業の開始時間、終了時間が記録される</li>
 </ul>
-<h4 id="_35">使用例</h4>
+<h4 id="_35">使用例<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h4>
 <ul>
 <li>ルートタスクの作業時間をすべて合計する</li>
 </ul>
@@ -1230,6 +1230,10 @@
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2021 - Pomodoro-Timer Application Ltd. Allrights Reserved.
+    </div>
   
   
     Made with
