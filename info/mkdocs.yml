@@ -23,5 +23,20 @@ nav:
       - API定義: 040.document/030.api/index.md
   - Tips:
       - git: 999.tips/010.git/index.md
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - footnotes
+  - pymdownx.highlight:
+      linenums: true
+  - pymdownx.superfences
+  - codehilite:
+      noclasses: true
+      pygments_style: colorful
+      linenums: true
+  - toc:
+      permalink: true
+  - attr_list
 plugins:
   - render_swagger
+copyright: 'Copyright © 2021 - Pomodoro-Timer Application Ltd. Allrights Reserved.'
