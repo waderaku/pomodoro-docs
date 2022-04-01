@@ -21,6 +21,8 @@ nav:
       - ユビキタス言語: 040.document/010.ubiquitous_language/index.md
       - DB設計書: 040.document/020.db/index.md
       - API定義: 040.document/030.api/index.md
+  - 会議:
+      - 2022/03/27: 050.meeting/010.20220327/index.md
   - Tips:
       - git: 999.tips/010.git/index.md
 markdown_extensions:
