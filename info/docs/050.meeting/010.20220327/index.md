@@ -1,18 +1,8 @@
 # 2022-03-27 打合せ
 
-## 進捗
-#### 青木
-- reactのtutorialを一通り完了！
+## 参加者
+稗田、下瀬、青木、小林
 
-#### 小林
-- reactのtutorialを一通り完了！
-- tutorialをfunction Componentと基本的なRecoilを使った書き方に直すことを実行中
-#### 稗田
-- tutorialをfunction Componentと応用的なRecoil(atomFamily)を使った書き方に直すことが完了
-#### 下瀬
-- frontの設計ルールを整備
-    - propsを使う or 全部のコンポーネントからRecoilにアクセスをする
-        - 結論：再利用するコンポーネントに関してはprops、それ以外はRecoilに直アクセス(開発者の裁量に任せる)
 ## お知らせ
 ### 設計書について
 設計書はmkdocs内で管理していこうと思います。  
