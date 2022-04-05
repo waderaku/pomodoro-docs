@@ -24,7 +24,7 @@ nav:
       - API定義: 040.document/030.api/index.md
   - 会議:
       - 2022/03/27: 050.meeting/010.20220327/index.md
-      - 2022/04/03: 050.meeting/010.20220403/index.md
+      - 2022/04/03: 050.meeting/020.20220403/index.md
   - Tips:
       - git: 999.tips/010.git/index.md
 markdown_extensions:
