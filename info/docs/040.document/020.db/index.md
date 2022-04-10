@@ -20,7 +20,7 @@
 | {user_id} | {task_id}_deadline | {deadline} | - | - | - |
 | {user_id}_event | {start_time} | {task_id} | {end_time} | - | - |
 | {user_id} | user | - | - | {USER_INFO} | - |
-| {user_id}_task | {task_id} | - | - | - | {TASK_INFO} |
+| {user_id}_task | {task_id} | {done} | - | - | {TASK_INFO} |
 
 ## スキーマ定義補足
 ### deadline
