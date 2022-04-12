@@ -12,12 +12,14 @@
 - タスク名/期限に紐づくタスク情報の取得
 - タスクIDに紐づくタスク情報の取得
 - タスクIDに紐づく作業一覧の取得
+- 親タスクのタスクID一覧の取得
 
 ## テーブル設計
 | ID(PK) | DataType(SK) | DataValue(LSI) | EndTime(Attr) | UserInfo | TaskInfo |
 | :---: | :---: | :---: | :---: | :---: | :---: |
 | {user_id} | {task_id}_name | {name} | - | - | - |
 | {user_id} | {task_id}_deadline | {deadline} | - | - | - |
+| {user_id} | {task_id}_root_flg | {root_flg} | - | - | - |
 | {user_id}_event | {start_time} | {task_id} | {end_time} | - | - |
 | {user_id} | user | - | - | {USER_INFO} | - |
 | {user_id}_task | {task_id} | {done} | - | - | {TASK_INFO} |
@@ -65,7 +67,8 @@ object
 ```json
 {
     "name": "タスク1",
-    "parentTaskId": "1",
+    "root_flg": true,
+    "childrenTaskId": ["2", "3"],
     "finishedMinutes": 30,
     "estimatedMinutes": 150,
     "deadline": "2022-03-29",
