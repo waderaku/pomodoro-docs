@@ -1010,6 +1010,7 @@
 <li>タスク名/期限に紐づくタスク情報の取得</li>
 <li>タスクIDに紐づくタスク情報の取得</li>
 <li>タスクIDに紐づく作業一覧の取得</li>
+<li>親タスクのタスクID一覧の取得</li>
 </ul>
 <h2 id="_3">テーブル設計<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <table>
@@ -1036,6 +1037,14 @@
 <td align="center">{user_id}</td>
 <td align="center">{task_id}_deadline</td>
 <td align="center">{deadline}</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center">{user_id}</td>
+<td align="center">{task_id}_root_flg</td>
+<td align="center">{root_flg}</td>
 <td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
@@ -1131,9 +1140,11 @@
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;タスク1&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;parentTaskId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;root_flg&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;childrenTaskId&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;2&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;3&quot;</span><span class="p">],</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;finishedMinutes&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;estimatedMinutes&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;deadline&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-29&quot;</span><span class="p">,</span><span class="w"></span>

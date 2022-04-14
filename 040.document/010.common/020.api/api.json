@@ -5,48 +5,6 @@
         "version": "0.1.0"
     },
     "paths": {
-        "/rootTask": {
-            "get": {
-                "tags": [
-                    "task"
-                ],
-                "summary": "Fetch Root Task",
-                "operationId": "fetch_root_task_rootTask_get",
-                "parameters": [
-                    {
-                        "required": false,
-                        "schema": {
-                            "title": "Userid",
-                            "type": "string"
-                        },
-                        "name": "userId",
-                        "in": "header"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful Response",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/RootTaskResponse"
-                                }
-                            }
-                        }
-                    },
-                    "422": {
-                        "description": "Validation Error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/HTTPValidationError"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
         "/task": {
             "get": {
                 "tags": [
@@ -290,55 +248,6 @@
                 }
             }
         },
-        "/task/finish/{id}": {
-            "put": {
-                "tags": [
-                    "task"
-                ],
-                "summary": "Finish Task",
-                "operationId": "finish_task_task_finish__id__put",
-                "parameters": [
-                    {
-                        "required": true,
-                        "schema": {
-                            "title": "Id",
-                            "type": "string"
-                        },
-                        "name": "id",
-                        "in": "path"
-                    },
-                    {
-                        "required": false,
-                        "schema": {
-                            "title": "Userid",
-                            "type": "string"
-                        },
-                        "name": "userId",
-                        "in": "header"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful Response",
-                        "content": {
-                            "application/json": {
-                                "schema": {}
-                            }
-                        }
-                    },
-                    "422": {
-                        "description": "Validation Error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/HTTPValidationError"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
         "/event": {
             "post": {
                 "tags": [
@@ -487,7 +396,7 @@
                 "required": [
                     "parentId",
                     "name",
-                    "estimatedMinutes",
+                    "estimatedWorkload",
                     "deadline",
                     "notes"
                 ],
@@ -501,8 +410,8 @@
                         "title": "Name",
                         "type": "string"
                     },
-                    "estimatedMinutes": {
-                        "title": "Estimatedminutes",
+                    "estimatedWorkload": {
+                        "title": "Estimatedworkload",
                         "type": "string"
                     },
                     "deadline": {
@@ -516,27 +425,20 @@
                     }
                 }
             },
-            "RootTaskResponse": {
-                "title": "RootTaskResponse",
+            "Task": {
+                "title": "Task",
                 "required": [
-                    "taskList",
-                    "rootList"
+                    "id",
+                    "taskData"
                 ],
                 "type": "object",
                 "properties": {
-                    "taskList": {
-                        "title": "Tasklist",
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        }
+                    "id": {
+                        "title": "Id",
+                        "type": "string"
                     },
-                    "rootList": {
-                        "title": "Rootlist",
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        }
+                    "taskData": {
+                        "$ref": "#/components/schemas/TaskData"
                     }
                 }
             },
@@ -545,8 +447,9 @@
                 "required": [
                     "name",
                     "childrenIdList",
-                    "finishedMinutes",
-                    "estimatedMinutes",
+                    "done",
+                    "finishedWorkload",
+                    "estimatedWorkload",
                     "deadline",
                     "notes"
                 ],
@@ -563,12 +466,16 @@
                             "type": "string"
                         }
                     },
-                    "finishedMinutes": {
-                        "title": "Finishedminutes",
+                    "done": {
+                        "title": "Done",
+                        "type": "boolean"
+                    },
+                    "finishedWorkload": {
+                        "title": "Finishedworkload",
                         "type": "integer"
                     },
-                    "estimatedMinutes": {
-                        "title": "Estimatedminutes",
+                    "estimatedWorkload": {
+                        "title": "Estimatedworkload",
                         "type": "integer"
                     },
                     "deadline": {
@@ -603,17 +510,20 @@
             "TaskResponse": {
                 "title": "TaskResponse",
                 "required": [
-                    "id",
-                    "task"
+                    "task",
+                    "rootTaskId"
                 ],
                 "type": "object",
                 "properties": {
-                    "id": {
-                        "title": "Id",
-                        "type": "string"
-                    },
                     "task": {
-                        "$ref": "#/components/schemas/TaskData"
+                        "$ref": "#/components/schemas/Task"
+                    },
+                    "rootTaskId": {
+                        "title": "Roottaskid",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
                     }
                 }
             },
@@ -622,7 +532,8 @@
                 "required": [
                     "name",
                     "deadline",
-                    "notes"
+                    "notes",
+                    "done"
                 ],
                 "type": "object",
                 "properties": {
@@ -638,6 +549,10 @@
                     "notes": {
                         "title": "Notes",
                         "type": "string"
+                    },
+                    "done": {
+                        "title": "Done",
+                        "type": "boolean"
                     }
                 }
             },
