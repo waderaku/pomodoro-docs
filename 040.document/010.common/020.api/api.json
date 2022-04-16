@@ -11,6 +11,7 @@
                     "task"
                 ],
                 "summary": "Fetch Task",
+                "description": "\n        ユーザIDに紐づくタスク一覧（完了済み/未済問わず）を取得する。\n        また、当該タスク一覧の中で、ルートタスクに該当するタスクIDの一覧を取得する\n        ",
                 "operationId": "fetch_task_task_get",
                 "parameters": [
                     {
@@ -29,11 +30,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "title": "Response Fetch Task Task Get",
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/TaskResponse"
-                                    }
+                                    "$ref": "#/components/schemas/TaskResponse"
                                 }
                             }
                         }
@@ -55,6 +52,7 @@
                     "task"
                 ],
                 "summary": "Register Task",
+                "description": "\n        タスクを新規に登録する。\n        IDはuuidによって一意に登録される。\n        親タスクの作業見積時間の再計算が行われる。\n        ",
                 "operationId": "register_task_task_post",
                 "parameters": [
                     {
@@ -99,102 +97,13 @@
                 }
             }
         },
-        "/user": {
-            "get": {
-                "tags": [
-                    "user"
-                ],
-                "summary": "Fetch User",
-                "operationId": "fetch_user_user_get",
-                "parameters": [
-                    {
-                        "required": false,
-                        "schema": {
-                            "title": "Userid",
-                            "type": "string"
-                        },
-                        "name": "userId",
-                        "in": "header"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful Response",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/UserModel"
-                                }
-                            }
-                        }
-                    },
-                    "422": {
-                        "description": "Validation Error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/HTTPValidationError"
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "put": {
-                "tags": [
-                    "user"
-                ],
-                "summary": "Update User",
-                "operationId": "update_user_user_put",
-                "parameters": [
-                    {
-                        "required": false,
-                        "schema": {
-                            "title": "Userid",
-                            "type": "string"
-                        },
-                        "name": "userId",
-                        "in": "header"
-                    }
-                ],
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/UserModel"
-                            }
-                        }
-                    },
-                    "required": true
-                },
-                "responses": {
-                    "200": {
-                        "description": "Successful Response",
-                        "content": {
-                            "application/json": {
-                                "schema": {}
-                            }
-                        }
-                    },
-                    "422": {
-                        "description": "Validation Error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/HTTPValidationError"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
         "/task/{id}": {
             "put": {
                 "tags": [
                     "task"
                 ],
                 "summary": "Update Task",
+                "description": "\n        タスクのデータを更新する。\n        親タスクの作業見積時間の再計算が行われる。\n        あるタスクを完了に変更した場合、その子タスクも完了にする。\n        \n        ",
                 "operationId": "update_task_task__id__put",
                 "parameters": [
                     {
@@ -248,12 +157,154 @@
                 }
             }
         },
+        "/user": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Fetch User",
+                "description": "\n        ユーザ情報を取得する\n        ",
+                "operationId": "fetch_user_user_get",
+                "parameters": [
+                    {
+                        "required": false,
+                        "schema": {
+                            "title": "Userid",
+                            "type": "string"
+                        },
+                        "name": "userId",
+                        "in": "header"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UserModel"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Update User",
+                "description": "\n        ユーザ情報を更新する\n        ",
+                "operationId": "update_user_user_put",
+                "parameters": [
+                    {
+                        "required": false,
+                        "schema": {
+                            "title": "Userid",
+                            "type": "string"
+                        },
+                        "name": "userId",
+                        "in": "header"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UserModel"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Update User",
+                "description": "\n        ユーザ情報を初期登録する。\n        実APIとして呼び出される想定はないが、WebSocket通信が開始した際に当該ユーザが存在しない場合に本ユースケースが走る\n        ",
+                "operationId": "update_user_user_post",
+                "parameters": [
+                    {
+                        "required": false,
+                        "schema": {
+                            "title": "Userid",
+                            "type": "string"
+                        },
+                        "name": "userId",
+                        "in": "header"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UserModel"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/event": {
             "post": {
                 "tags": [
                     "event"
                 ],
                 "summary": "Register Event",
+                "description": "\n        作業情報を登録する。当該タスクとその親タスクの作業時間の再計算が行われる。\n        ",
                 "operationId": "register_event_event_post",
                 "parameters": [
                     {
@@ -412,7 +463,7 @@
                     },
                     "estimatedWorkload": {
                         "title": "Estimatedworkload",
-                        "type": "string"
+                        "type": "integer"
                     },
                     "deadline": {
                         "title": "Deadline",
@@ -516,7 +567,11 @@
                 "type": "object",
                 "properties": {
                     "task": {
-                        "$ref": "#/components/schemas/Task"
+                        "title": "Task",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Task"
+                        }
                     },
                     "rootTaskId": {
                         "title": "Roottaskid",
