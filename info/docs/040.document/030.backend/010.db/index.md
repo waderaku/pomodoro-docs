@@ -13,16 +13,18 @@
 - タスクIDに紐づくタスク情報の取得
 - タスクIDに紐づく作業一覧の取得
 - 親タスクのタスクID一覧の取得
+- websocketID一覧の取得
 
 ## テーブル設計
 | ID(PK) | DataType(SK) | DataValue(LSI) | EndTime(Attr) | UserInfo | TaskInfo |
 | :---: | :---: | :---: | :---: | :---: | :---: |
 | {user_id} | {task_id}_name | {name} | - | - | - |
 | {user_id} | {task_id}_deadline | {deadline} | - | - | - |
-| {user_id} | {task_id}_root_flg | {root_flg} | - | - | - |
+| {user_id} | {task_id}_root | root_task | - | - | - | - |
 | {user_id}_event | {start_time} | {task_id} | {end_time} | - | - |
 | {user_id} | user | - | - | {USER_INFO} | - |
 | {user_id}_task | {task_id} | {done} | - | - | {TASK_INFO} |
+| {user_id}_socket | {socket_id} | - | - | - | - |
 
 ## スキーマ定義補足
 ### deadline
@@ -42,19 +44,18 @@ object
 ```json
 {
     "name": "ユーザ1",
-    "password": "P@ssw0rd",
-    "isGoogleLinked": true,
-    "googleConfig": {
+    "is_google_linked": true,
+    "google_config": {
         "calendar": {
         "id": "1",
         "name": "pomodoro-timer@gmail.com"
         },
-        "taskList": {
+        "task_list": {
         "id": "1",
         "name": "timer作成"
         }
     },
-    "defaultLength": {
+    "default_length": {
         "work": 25,
         "rest": 5
     }
@@ -68,9 +69,9 @@ object
 {
     "name": "タスク1",
     "root_flg": true,
-    "childrenTaskId": ["2", "3"],
-    "finishedMinutes": 30,
-    "estimatedMinutes": 150,
+    "children_task_id": ["2", "3"],
+    "finished_workload": 30,
+    "estimated_workload": 150,
     "deadline": "2022-03-29",
     "notes": "備考を記載"
 }
