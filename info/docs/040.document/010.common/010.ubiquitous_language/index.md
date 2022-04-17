@@ -59,7 +59,7 @@ non_leaf_task、nonLeafTask
 
 ### 作業見積時間、見積時間
 #### 英名(単数)
-estimated_minutes、estimatedMinutes
+estimated_workload、estimatedWorkload
 #### 概要
 - タスクの作業見積時間を指す。単位は分である。
 - 非葉タスクの作業見積時間は、「子タスクの作業見積時間の合計」と「当該タスクに設定されている作業見積時間」のより大きい値となる。
@@ -68,7 +68,7 @@ estimated_minutes、estimatedMinutes
 
 ### 作業完了時間、完了時間
 #### 英名(単数)
-finished_minutes、finishedMinutes
+finished_workload、finishedWorkload
 #### 概要
 - タスクの作業完了時間を指す。単位は分である。
 - 非葉タスクの作業完了時間は、子タスクの作業完了時間と当該タスクが葉タスクであったときに実施した作業時間の合計となる。
