@@ -52,7 +52,7 @@
                     "task"
                 ],
                 "summary": "Register Task",
-                "description": "\n        タスクを新規に登録する。\n        IDはuuidによって一意に登録される。\n        親タスクの作業見積時間の再計算が行われる。\n        ",
+                "description": "\n        タスクを新規に登録する。\n        IDはuuidによって一意に登録される。\n        親タスクの作業見積時間及び期日の再計算が行われる。\n        ",
                 "operationId": "register_task_task_post",
                 "parameters": [
                     {
@@ -103,7 +103,7 @@
                     "task"
                 ],
                 "summary": "Update Task",
-                "description": "\n        タスクのデータを更新する。\n        親タスクの作業見積時間の再計算が行われる。\n        あるタスクを完了に変更した場合、その子タスクも完了にする。\n        \n        ",
+                "description": "\n        タスクのデータを更新する。\n        親タスクの作業見積時間及び期日の再計算が行われる。\n        あるタスクを完了に変更した場合、その子タスクも完了にする。\n        ",
                 "operationId": "update_task_task__id__put",
                 "parameters": [
                     {
@@ -587,6 +587,7 @@
                 "required": [
                     "name",
                     "deadline",
+                    "estimatedWorkload",
                     "notes",
                     "done"
                 ],
@@ -600,6 +601,10 @@
                         "title": "Deadline",
                         "type": "string",
                         "format": "date"
+                    },
+                    "estimatedWorkload": {
+                        "title": "Estimatedworkload",
+                        "type": "integer"
                     },
                     "notes": {
                         "title": "Notes",
