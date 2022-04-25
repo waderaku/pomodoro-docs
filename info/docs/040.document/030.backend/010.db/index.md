@@ -13,7 +13,6 @@
 - タスクIDに紐づくタスク情報の取得
 - タスクIDに紐づく作業一覧の取得
 - 親タスクのタスクID一覧の取得
-- websocketID一覧の取得
 
 ## テーブル設計
 | ID(PK) | DataType(SK) | DataValue(LSI) | EndTime(Attr) | UserInfo | TaskInfo |
@@ -24,7 +23,6 @@
 | {user_id}_event | {start_time} | {task_id} | {end_time} | - | - |
 | {user_id} | user | - | - | {USER_INFO} | - |
 | {user_id}_task | {task_id} | {done} | - | - | {TASK_INFO} |
-| {user_id}_socket | {socket_id} | - | - | - | - |
 
 ## スキーマ定義補足
 ### deadline
