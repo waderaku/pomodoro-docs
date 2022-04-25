@@ -52,7 +52,7 @@
                     "task"
                 ],
                 "summary": "Register Task",
-                "description": "\n        タスクを新規に登録する。\n        IDはuuidによって一意に登録される。\n        親タスクの作業見積時間及び期日の再計算が行われる。\n        対象ユーザのSocketIDに最新のタスク情報を返却する。\n        ",
+                "description": "\n        タスクを新規に登録する。\n        IDはuuidによって一意に登録される。\n        親タスクの作業見積時間及び期日の再計算が行われる。\n        ",
                 "operationId": "register_task_task_post",
                 "parameters": [
                     {
@@ -103,7 +103,7 @@
                     "task"
                 ],
                 "summary": "Update Task",
-                "description": "\n        タスクのデータを更新する。\n        親タスクの作業見積時間及び期日の再計算が行われる。\n        あるタスクを完了に変更した場合、その子タスクも完了にする。\n        対象ユーザのSocketIDに最新のタスク情報を返却する。\n        ",
+                "description": "\n        タスクのデータを更新する。\n        親タスクの作業見積時間及び期日の再計算が行われる。\n        あるタスクを完了に変更した場合、その子タスクも完了にする。\n        ",
                 "operationId": "update_task_task__id__put",
                 "parameters": [
                     {
@@ -252,9 +252,9 @@
                 "tags": [
                     "user"
                 ],
-                "summary": "Update User",
-                "description": "\n        ユーザ情報を初期登録する。\n        実APIとして呼び出される想定はないが、WebSocket通信が開始した際に当該ユーザが存在しない場合に本ユースケースが走る\n        ",
-                "operationId": "update_user_user_post",
+                "summary": "Register User",
+                "description": "\n        ユーザ情報を初期登録する。\n        ",
+                "operationId": "register_user_user_post",
                 "parameters": [
                     {
                         "required": false,
@@ -266,16 +266,6 @@
                         "in": "header"
                     }
                 ],
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/UserModel"
-                            }
-                        }
-                    },
-                    "required": true
-                },
                 "responses": {
                     "200": {
                         "description": "Successful Response",
@@ -620,7 +610,6 @@
                 "title": "UserModel",
                 "required": [
                     "isGoogleLinked",
-                    "googleConfig",
                     "defaultLength"
                 ],
                 "type": "object",
