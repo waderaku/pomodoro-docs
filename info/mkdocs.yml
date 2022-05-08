@@ -19,13 +19,20 @@ nav:
       - git運用について: 030.rule/020.git/index.md
       - フロントエンド: 030.rule/030.frontend/index.md
   - 設計書:
-      - ユビキタス言語: 040.document/010.ubiquitous_language/index.md
-      - DB設計書: 040.document/020.db/index.md
-      - API定義: 040.document/030.api/index.md
+      - 共通: 
+        - ユビキタス言語: 040.document/010.common/010.ubiquitous_language/index.md
+        - API定義: 040.document/010.common/020.api/index.md
+        - 認証フロー: 040.document/010.common/030.authentication/index.md
+      - フロントエンド: 
+        - 画面設計書: 040.document/010.frontend/010.screen_layout/index.md
+        - 期日タスク: 040.document/020.frontend/020.deadline_task/index.md
+      - バックエンド: 
+        - DB設計書: 040.document/030.backend/010.db/index.md
   - 会議:
       - 2022/03/27: 050.meeting/010.20220327/index.md
       - 2022/04/03: 050.meeting/020.20220403/index.md
       - 2022/05/01: 050.meeting/030.20220501/index.md
+  - 課題管理表: 060.task/index.md
   - Tips:
       - git: 999.tips/010.git/index.md
 markdown_extensions:
