@@ -11,7 +11,7 @@
                     "task"
                 ],
                 "summary": "Fetch Task",
-                "description": "\n        ユーザIDに紐づくタスク一覧（完了済み/未済問わず）を取得する。\n        また、当該タスク一覧の中で、ルートタスクに該当するタスクIDの一覧を取得する\n        ",
+                "description": "\n        ユーザIDに紐づくタスク一覧（完了済み/未済問わず）を取得する。\n        また、当該タスク一覧の中で、ショートカットに登録されているタスクIDの一覧を取得する\n        ",
                 "operationId": "fetch_task_task_get",
                 "parameters": [
                     {
@@ -141,6 +141,79 @@
                         "content": {
                             "application/json": {
                                 "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/task/{id}/event": {
+            "get": {
+                "tags": [
+                    "task",
+                    "event"
+                ],
+                "summary": "Search Event Task",
+                "description": "\n        指定した期間(YYYY-MM-dd)に行われたタスク一覧と、各タスクの期間内の作業時間を取得する\n        idに指定されたタスクに紐づく子タスク単位で取得する\n        ただし、対象となるタスクの子タスクのイベントも全て対象となる\n        idがrootであった場合、rootTaskを取得する\n        ",
+                "operationId": "search_event_task_task__id__event_get",
+                "parameters": [
+                    {
+                        "required": true,
+                        "schema": {
+                            "title": "Taskid",
+                            "type": "string"
+                        },
+                        "name": "taskId",
+                        "in": "query"
+                    },
+                    {
+                        "required": true,
+                        "schema": {
+                            "title": "Lowerdate",
+                            "type": "string",
+                            "format": "date"
+                        },
+                        "name": "lowerDate",
+                        "in": "query"
+                    },
+                    {
+                        "required": true,
+                        "schema": {
+                            "title": "Upperdate",
+                            "type": "string",
+                            "format": "date"
+                        },
+                        "name": "upperDate",
+                        "in": "query"
+                    },
+                    {
+                        "required": false,
+                        "schema": {
+                            "title": "Userid",
+                            "type": "string"
+                        },
+                        "name": "userId",
+                        "in": "header"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/EventTask"
+                                }
                             }
                         }
                     },
@@ -338,6 +411,59 @@
                     }
                 }
             }
+        },
+        "/event/summary": {
+            "get": {
+                "tags": [
+                    "event"
+                ],
+                "summary": "Fetch Event Summary",
+                "description": "\n        基準日（YYYY-MM-dd）から見ての当月、当週及び当日を含めた\n        これまでの作業時間のサマリーを取得する\n        単位はhourを小数点第一位までで返却する\n        ",
+                "operationId": "fetch_event_summary_event_summary_get",
+                "parameters": [
+                    {
+                        "required": true,
+                        "schema": {
+                            "title": "Base Date",
+                            "type": "string",
+                            "format": "date"
+                        },
+                        "name": "base_date",
+                        "in": "query"
+                    },
+                    {
+                        "required": false,
+                        "schema": {
+                            "title": "Userid",
+                            "type": "string"
+                        },
+                        "name": "userId",
+                        "in": "header"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/EventSummary"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": {
@@ -375,6 +501,85 @@
                     "rest": {
                         "title": "Rest",
                         "type": "integer"
+                    }
+                }
+            },
+            "Event": {
+                "title": "Event",
+                "required": [
+                    "startTime",
+                    "endTime"
+                ],
+                "type": "object",
+                "properties": {
+                    "startTime": {
+                        "title": "Starttime",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "endTime": {
+                        "title": "Endtime",
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "EventSummary": {
+                "title": "EventSummary",
+                "required": [
+                    "totalFinishedWorkload",
+                    "mothlyFinishedWorkload",
+                    "weeklyFinishedWorkload",
+                    "daylyFinishedWorkload"
+                ],
+                "type": "object",
+                "properties": {
+                    "totalFinishedWorkload": {
+                        "title": "Totalfinishedworkload",
+                        "type": "number"
+                    },
+                    "mothlyFinishedWorkload": {
+                        "title": "Mothlyfinishedworkload",
+                        "type": "number"
+                    },
+                    "weeklyFinishedWorkload": {
+                        "title": "Weeklyfinishedworkload",
+                        "type": "number"
+                    },
+                    "daylyFinishedWorkload": {
+                        "title": "Daylyfinishedworkload",
+                        "type": "number"
+                    }
+                }
+            },
+            "EventTask": {
+                "title": "EventTask",
+                "required": [
+                    "id",
+                    "name",
+                    "finishedWorkload",
+                    "eventList"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string"
+                    },
+                    "name": {
+                        "title": "Name",
+                        "type": "string"
+                    },
+                    "finishedWorkload": {
+                        "title": "Finishedworkload",
+                        "type": "string"
+                    },
+                    "eventList": {
+                        "title": "Eventlist",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Event"
+                        }
                     }
                 }
             },
@@ -439,7 +644,8 @@
                     "name",
                     "estimatedWorkload",
                     "deadline",
-                    "notes"
+                    "notes",
+                    "shortcutFlg"
                 ],
                 "type": "object",
                 "properties": {
@@ -463,6 +669,10 @@
                     "notes": {
                         "title": "Notes",
                         "type": "string"
+                    },
+                    "shortcutFlg": {
+                        "title": "Shortcutflg",
+                        "type": "boolean"
                     }
                 }
             },
@@ -552,7 +762,7 @@
                 "title": "TaskResponse",
                 "required": [
                     "task",
-                    "rootTaskId"
+                    "shortcutTaskId"
                 ],
                 "type": "object",
                 "properties": {
@@ -563,8 +773,8 @@
                             "$ref": "#/components/schemas/Task"
                         }
                     },
-                    "rootTaskId": {
-                        "title": "Roottaskid",
+                    "shortcutTaskId": {
+                        "title": "Shortcuttaskid",
                         "type": "array",
                         "items": {
                             "type": "string"
@@ -579,7 +789,8 @@
                     "deadline",
                     "estimatedWorkload",
                     "notes",
-                    "done"
+                    "done",
+                    "shortcutFlg"
                 ],
                 "type": "object",
                 "properties": {
@@ -602,6 +813,10 @@
                     },
                     "done": {
                         "title": "Done",
+                        "type": "boolean"
+                    },
+                    "shortcutFlg": {
+                        "title": "Shortcutflg",
                         "type": "boolean"
                     }
                 }

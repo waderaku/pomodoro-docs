@@ -19,7 +19,6 @@
 | :---: | :---: | :---: | :---: | :---: | :---: |
 | {user_id} | {task_id}_name | {name} | - | - | - |
 | {user_id} | {task_id}_deadline | {deadline} | - | - | - |
-| {user_id} | {task_id}_root | root_task | - | - | - | - |
 | {user_id}_event | {start_time} | {task_id} | {end_time} | - | - |
 | {user_id} | user | - | - | {USER_INFO} | - |
 | {user_id}_task | {task_id} | {done} | - | - | {TASK_INFO} |
@@ -67,6 +66,7 @@ object
 {
     "name": "タスク1",
     "root_flg": true,
+    "shortcut_flg": false,
     "children_task_id": ["2", "3"],
     "finished_workload": 30,
     "estimated_workload": 150,
