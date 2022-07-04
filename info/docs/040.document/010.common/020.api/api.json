@@ -698,7 +698,7 @@
                 "required": [
                     "name",
                     "childrenIdList",
-                    "parentIdList",
+                    "parentId",
                     "done",
                     "finishedWorkload",
                     "estimatedWorkload",
@@ -718,12 +718,9 @@
                             "type": "string"
                         }
                     },
-                    "parentIdList": {
-                        "title": "Parentidlist",
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        }
+                    "parentId": {
+                        "title": "Parentid",
+                        "type": "string"
                     },
                     "done": {
                         "title": "Done",

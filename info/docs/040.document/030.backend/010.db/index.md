@@ -65,7 +65,6 @@ object
 ```json
 {
     "name": "タスク1",
-    "root_flg": true,
     "shortcut_flg": false,
     "children_task_id": ["2", "3"],
     "finished_workload": 30,
