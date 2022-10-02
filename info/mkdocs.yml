@@ -23,6 +23,7 @@ nav:
         - ユビキタス言語: 040.document/010.common/010.ubiquitous_language/index.md
         - API定義: 040.document/010.common/020.api/index.md
         - 認証フロー: 040.document/010.common/030.authentication/index.md
+        - 統計情報: 040.document/010.common/040.statistics/index.md
       - フロントエンド: 
         - 画面設計書: 040.document/010.frontend/010.screen_layout/index.md
         - 期日タスク: 040.document/020.frontend/020.deadline_task/index.md
