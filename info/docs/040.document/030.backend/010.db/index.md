@@ -15,19 +15,16 @@
 - 親タスクのタスクID一覧の取得
 
 ## テーブル設計
-| ID(PK) | DataType(SK) | DataValue(LSI) | EndTime(Attr) | UserInfo | TaskInfo |
+| ID(PK) | DataType(SK) | DataValue(LSI) | EventInfo(Attr) | UserInfo | TaskInfo |
 | :---: | :---: | :---: | :---: | :---: | :---: |
-| {user_id} | {task_id}_name | {name} | - | - | - |
-| {user_id} | {task_id}_deadline | {deadline} | - | - | - |
-| {user_id} | {task_id}_root | root_task | - | - | - | - |
-| {user_id}_event | {start_time} | {task_id} | {end_time} | - | - |
+| {user_id}_event | {start} | {task_id} | {EVENT_INFO} | - | - |
 | {user_id} | user | - | - | {USER_INFO} | - |
 | {user_id}_task | {task_id} | {done} | - | - | {TASK_INFO} |
 
 ## スキーマ定義補足
 ### deadline
 #### 型
-string (YYYY-MM-DD)
+string (ISO8601フォーマット)
 #### データ例
 2020-12-01
 ### start_time, end_time
@@ -67,10 +64,21 @@ object
 {
     "name": "タスク1",
     "root_flg": true,
+    "parent_id": "root",
     "children_task_id": ["2", "3"],
     "finished_workload": 30,
     "estimated_workload": 150,
-    "deadline": "2022-03-29",
+    "deadline": "2023-05-18T15:17:08.132263",
     "notes": "備考を記載"
 }
 ```
+
+### EVENT_INFO
+#### 型
+object
+#### データ例
+```json
+{
+    "event_id": "some_event_id",
+    "end": "2023-05-18T15:17:08.132263",
+}
